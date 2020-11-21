@@ -1,11 +1,11 @@
 import socket
-from flask import Flask, request
+from flask import Flask
 
 app = Flask(__name__)
 
 @app.route("/")
 def return_hostname():
-    return "The Hostname is  {} and the IP address is {}".format(socket.gethostname(), request.remote_addr)
+    return "Hello World from {} and my IP address is {}".format(socket.gethostname(), socket.gethostbyname(socket.gethostname()) )
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0')
